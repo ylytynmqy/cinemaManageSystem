@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <title>活动管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/adminPromotion.css?v=1.1"/>
+
+
+    <script src="/js/jquery.js?v=1.1"></script>
+<!--    <script src="/js/popper.js"></script>-->
+    <script src="/js/bootstrap.bundle.js?v=1.1"></script>
+<!--    <script src="/js/bootstrap.js"></script>-->
+    <script src="/js/request.js?v=1.1"></script>
+    <script src="/js/adminPromotionManage.js?v=1.1"></script>
+
+</head>
+<body>
+<div class="nav-left-container">
+    <div class="nav-user-container" style="margin-bottom: 50px;">
+        <img class="avatar-lg" src="/images/defaultAvatar.jpg" />
+        <p class="title">Admin</p>
+    </div>
+
+    <ul class="nav nav-pills flex-column nav-column">
+        <li class="nav-item"><a class="nav-link active" href="/admin/promotion/manage"><i class="fas fa-gifts"></i>  活动管理</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/cinema/manage"><i class="fas fa-couch"></i>  影院管理</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/member/manage"><i class="fas fa-crown"></i>  会员管理</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/clerk/manage"><i class="fas fa-user-cog"></i>  员工管理</a></li>
+
+    </ul>
+</div>
+
+<div class="content-container-back">
+    <div class="content-header">
+        <span class="subtitle">活动管理</span>
+        <button type="button" class="btn btn-primary" data-backdrop="static" data-toggle="modal" id="addActivity"><i class="icon-plus-sign"></i> 发布活动</button>
+    </div>
+
+    <div class="content-activity">
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="activityModal" tabindex="-1" role="dialog" aria-labelledby="movieModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="activytyModalLabel">发布活动</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="activity-name-input"><span class="error-text">*</span>活动名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="activity-name-input" placeholder="请输入活动名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="activity-description-input">活动描述</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="activity-description-input" placeholder="请输入活动描述">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="activity-start-date-input"><span class="error-text">*</span>开始日期</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="activity-start-date-input" placeholder="请输入活动开始日期">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="activity-end-date-input"><span class="error-text">*</span>结束日期</label>
+                        <div class="col-sm-10">
+                            <input type="date" class="form-control" id="activity-end-date-input" placeholder="请输入活动结束日期">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="coupon-name-input"><span class="error-text">*</span>奖券名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="coupon-name-input" placeholder="请输入优惠券名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="coupon-description-input"><span class="error-text">*</span>奖券描述</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="coupon-description-input" placeholder="请输入优惠券描述">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="coupon-target-input"><span class="error-text">*</span>优惠券使用需满金额</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="coupon-target-input" placeholder="请输入需满金额">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="coupon-discount-input"><span class="error-text">*</span>优惠券使用优惠金额</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="coupon-discount-input" placeholder="请输入优惠金额">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <form action="" method="get">
+                            <label class="col-sm-2 control-label" for="activity-movie-input">参与电影</label>
+                            <div class="col-sm-10" id="activity-movie-input">
+                                <!--在架上的活动列表-->
+                            </div>
+                        </form>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="activity-movie-input">已选电影</label>
+                        <div id="selected-movies" class="col-sm-10">
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="activity-form-btn">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

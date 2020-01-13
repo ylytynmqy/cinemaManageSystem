@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <title>影院统计</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/clerkStatistic.css?v=1.1"/>
+
+
+    <script src="/js/jquery.js?v=1.1"></script>
+<!--    <script src="/js/popper.js"></script>-->
+    <script src="/js/bootstrap.bundle.js?v=1.1"></script>
+<!--    <script src="/js/bootstrap.js"></script>-->
+    <script src="/js/request.js?v=1.1"></script>
+    <script src="/js/echarts.js?v=1.1"></script>
+    <script src="/js/clerkCinemaStatistic.js?v=1.1"></script>
+
+</head>
+<body>
+<div class="nav-left-container">
+    <div class="nav-user-container" style="margin-bottom: 50px;">
+        <img class="avatar-lg" src="/images/defaultAvatar.jpg" />
+        <p class="title">Clerk</p>
+    </div>
+
+    <ul class="nav nav-pills flex-column nav-column">
+        <li class="nav-item">
+            <a class="nav-link " href="/clerk/movie/manage"><i class="fas fa-film"></i>  电影管理</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/clerk/session/manage"><i class="fas fa-calendar-alt"></i>  排片管理</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#"><i class="fas fa-chart-bar"></i>  影院统计</a>
+        </li>
+    </ul>
+</div>
+
+<div class="content-container-back">
+    <div class="content-header">
+        <span class="subtitle">影院统计</span>
+    </div>
+
+
+    <div class="card" id="inputer0">
+    <form class="form-inline" >
+        <div class="form-group">
+            <input type="date" class="form-control" id="schedule-rate-date-input"  placeholder="选择日期">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="button" id="schedule-rate-form-btn">确认</button>
+        </div>
+
+    </form>
+    </div>
+    <div class="card table-container" id="schedule-rate-container">
+
+    </div>
+    <div class="card table-container" id="box-office-container">
+    </div>
+    <div class="card table-container" id="audience-price-container">
+    </div>
+
+
+    <div class="card" id="inputer1">
+        <form class="form-inline" >
+            <div class="form-group">
+                <input type="date" class="form-control" id="place-rate-date-input"  placeholder="选择日期">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="button" id="place-rate-form-btn">确认</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="card table-container" id="place-rate-container">
+    </div>
+
+
+    <div class="card" id="inputer2">
+        <form class="form-inline">
+            <div class="form-group">
+                <input type="number" class="form-control" id="popular-movie-days-input"  placeholder="请输入days">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="popular-movie-movieNum-input" placeholder="请输入movieNum">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="button" id="popular-movie-form-btn">确认</button>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="card table-container" id="popular-movie-container">
+
+    </div>
+
+
+
+</div>
+</body>
+</html>

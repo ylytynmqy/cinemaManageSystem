@@ -1,0 +1,149 @@
+/*第一阶段*/
+#content-under{
+    overflow:hidden;
+    width: 100%;
+    display: flex;
+}
+.seat-content {
+    overflow:hidden;
+    width: 100%;
+    display: flex;
+}
+#hall-card{
+    display: flex;
+    width: 100%;
+    overflow:hidden;
+}
+
+.seat-content .movie-detail {
+    padding: 20px;
+    min-width: 30%;
+}
+
+.seat-content .movie-detail .line {
+    display: flex;
+    flex-direction: row;
+}
+
+.seat-content .movie-detail .line .name {
+    flex-shrink: 0;
+}
+
+.img-wrapper {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: auto;
+}
+
+.info #movie-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#seat-detail {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#seat-detail span {
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+
+/*第二阶段*/
+#order-state table thead tr {
+    background-color: #337ab7;
+}
+
+#order-state table th, td {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.order-info {
+    /*margin: 20px 0;*/
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.item {
+    margin: 5px 0;
+}
+
+.order-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.order-footer b {
+    font-size: 20px;
+    color: #337ab7;
+}
+
+hr.dashed-line {
+    border: 1px dashed #eeeeee
+}
+
+.success-notice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.success-notice .hint {
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+.cancel-notice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.cancel-notice .hint {
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+.unpaid-notice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.unpaid-notice .hint {
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+.table-wrapper {
+    padding: 20px;
+}
+
+.table-wrapper .table b {
+    color: #337ab7;
+    font-size: 20px;
+}
+
+.table-wrapper .table td{
+    height: 60px;
+    vertical-align: middle;
+}

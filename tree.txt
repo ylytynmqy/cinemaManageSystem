@@ -1,0 +1,324 @@
+卷 新加卷 的文件夹 PATH 列表
+卷序列号为 FC1B-A900
+G:.
+│  cinema.iml
+│  pom.xml
+│  README.md
+│  tree.txt
+│  需求文档0418.docx
+│  
+├─sql
+│      cinema.sql
+│      
+└─src
+    └─main
+        ├─java
+        │  └─com
+        │      └─example
+        │          └─cinema
+        │              │  CinemaApplication.java
+        │              │  
+        │              ├─bl
+        │              │  ├─management
+        │              │  │      ClerkService.java
+        │              │  │      HallService.java
+        │              │  │      MovieService.java
+        │              │  │      ScheduleService.java
+        │              │  │      
+        │              │  ├─promotion
+        │              │  │      ActivityService.java
+        │              │  │      CouponService.java
+        │              │  │      MessageService.java
+        │              │  │      RefundService.java
+        │              │  │      VIPService.java
+        │              │  │      
+        │              │  ├─sales
+        │              │  │      OrderService.java
+        │              │  │      TicketService.java
+        │              │  │      
+        │              │  ├─statistics
+        │              │  │      MovieLikeService.java
+        │              │  │      StatisticsService.java
+        │              │  │      
+        │              │  └─user
+        │              │          AccountService.java
+        │              │          
+        │              ├─blImpl
+        │              │  ├─management
+        │              │  │  ├─clerk
+        │              │  │  │      ClerkServiceImpl.java
+        │              │  │  │      
+        │              │  │  ├─hall
+        │              │  │  │      HallServiceForBl.java
+        │              │  │  │      HallServiceImpl.java
+        │              │  │  │      
+        │              │  │  ├─movie
+        │              │  │  │      MovieServiceImpl.java
+        │              │  │  │      
+        │              │  │  └─schedule
+        │              │  │          MovieServiceForBl.java
+        │              │  │          ScheduleServiceForBl.java
+        │              │  │          ScheduleServiceImpl.java
+        │              │  │          
+        │              │  ├─promotion
+        │              │  │      ActivityServiceImpl.java
+        │              │  │      CouponServiceImpl.java
+        │              │  │      MessageServiceImpl.java
+        │              │  │      RefundServiceImpl.java
+        │              │  │      VIPServiceImpl.java
+        │              │  │      
+        │              │  ├─sales
+        │              │  │      OrderServiceImpl.java
+        │              │  │      TicketServiceImpl.java
+        │              │  │      
+        │              │  ├─statistics
+        │              │  │      MovieLikeServiceImpl.java
+        │              │  │      StatisticsServiceImpl.java
+        │              │  │      
+        │              │  └─user
+        │              │          AccountServiceImpl.java
+        │              │          
+        │              ├─config
+        │              │      InterceptorConfiguration.java
+        │              │      
+        │              ├─controller
+        │              │  ├─management
+        │              │  │      ClerkController.java
+        │              │  │      HallController.java
+        │              │  │      MovieController.java
+        │              │  │      ScheduleController.java
+        │              │  │      
+        │              │  ├─promotion
+        │              │  │      ActivityController.java
+        │              │  │      CouponController.java
+        │              │  │      MessageController.java
+        │              │  │      RefundController.java
+        │              │  │      VIPCardController.java
+        │              │  │      
+        │              │  ├─router
+        │              │  │      ViewController.java
+        │              │  │      
+        │              │  ├─sales
+        │              │  │      OrderController.java
+        │              │  │      TicketController.java
+        │              │  │      
+        │              │  ├─statistics
+        │              │  │      StatisticsController.java
+        │              │  │      
+        │              │  └─user
+        │              │          AccountController.java
+        │              │          
+        │              ├─data
+        │              │  ├─management
+        │              │  │      ClerkMapper.java
+        │              │  │      HallMapper.java
+        │              │  │      MovieMapper.java
+        │              │  │      ScheduleMapper.java
+        │              │  │      
+        │              │  ├─promotion
+        │              │  │      ActivityMapper.java
+        │              │  │      CouponMapper.java
+        │              │  │      MessageMapper.java
+        │              │  │      RefundMapper.java
+        │              │  │      VIPCardMapper.java
+        │              │  │      
+        │              │  ├─sales
+        │              │  │      OrderMapper.java
+        │              │  │      TicketMapper.java
+        │              │  │      
+        │              │  ├─statistics
+        │              │  │      MovieLikeMapper.java
+        │              │  │      StatisticsMapper.java
+        │              │  │      
+        │              │  └─user
+        │              │          AccountMapper.java
+        │              │          
+        │              ├─interceptor
+        │              │      SessionInterceptor.java
+        │              │      
+        │              ├─po
+        │              │      Activity.java
+        │              │      AudiencePrice.java
+        │              │      Clerk.java
+        │              │      Coupon.java
+        │              │      DateLike.java
+        │              │      Hall.java
+        │              │      Message.java
+        │              │      Movie.java
+        │              │      MovieScheduleTime.java
+        │              │      MovieTotalBoxOffice.java
+        │              │      Order.java
+        │              │      ScheduleItem.java
+        │              │      Ticket.java
+        │              │      User.java
+        │              │      VIPCard.java
+        │              │      VIPCardKind.java
+        │              │      
+        │              └─vo
+        │                      ActivityForm.java
+        │                      ActivityVO.java
+        │                      AudiencePriceVO.java
+        │                      ClerkVO.java
+        │                      CouponForm.java
+        │                      DateLikeVO.java
+        │                      HallVO.java
+        │                      MessageForm.java
+        │                      MovieBatchOffForm.java
+        │                      MovieForm.java
+        │                      MoviePlacingConditionVO.java
+        │                      MovieScheduleTimeVO.java
+        │                      MovieTotalBoxOfficeVO.java
+        │                      MovieVO.java
+        │                      OrderForm.java
+        │                      PopularMoviesVO.java
+        │                      RefundStrategyForm.java
+        │                      ResponseVO.java
+        │                      ScheduleBatchDeleteForm.java
+        │                      ScheduleForm.java
+        │                      ScheduleItemVO.java
+        │                      ScheduleViewForm.java
+        │                      ScheduleVO.java
+        │                      ScheduleWithSeatVO.java
+        │                      SeatForm.java
+        │                      TicketForm.java
+        │                      TicketVO.java
+        │                      TicketWithCouponVO.java
+        │                      TicketWithScheduleVO.java
+        │                      UserForm.java
+        │                      UserVO.java
+        │                      VIPCardForm.java
+        │                      VIPCardKindVO.java
+        │                      VIPInfoVO.java
+        │                      VIPWithTotal.java
+        │                      
+        └─resources
+            │  application.yml
+            │  
+            ├─dataImpl
+            │  ├─management
+            │  │      ClerkMapper.xml
+            │  │      HallMapper.xml
+            │  │      MovieMapper.xml
+            │  │      ScheduleMapper.xml
+            │  │      
+            │  ├─promotion
+            │  │      ActivityMapper.xml
+            │  │      CouponMapper.xml
+            │  │      MessageMapper.xml
+            │  │      RefundMapper.xml
+            │  │      VIPCardMapper.xml
+            │  │      
+            │  ├─sales
+            │  │      OrderMapper.xml
+            │  │      TicketMapper.xml
+            │  │      
+            │  ├─statistics
+            │  │      MovieLikeMapper.xml
+            │  │      StatisticsMapper.xml
+            │  │      
+            │  └─user
+            │          AccountMapper.xml
+            │          
+            ├─static
+            │  ├─css
+            │  │      adminMemberManage.css
+            │  │      adminPromotion.css
+            │  │      bootstrap-grid.css
+            │  │      bootstrap-grid.css.map
+            │  │      bootstrap-reboot.css
+            │  │      bootstrap-reboot.css.map
+            │  │      bootstrap-table.css
+            │  │      bootstrap.css
+            │  │      bootstrap.css.map
+            │  │      cinemaHall.css
+            │  │      clerkSchedule.css
+            │  │      clerkStatistic.css
+            │  │      common.css
+            │  │      font-awesome.css
+            │  │      index.css
+            │  │      movieDetail.css
+            │  │      movieList.css
+            │  │      useOrder.css
+            │  │      userBuy.css
+            │  │      userHome.css
+            │  │      userMember.css
+            │  │      userMovie.css
+            │  │      userMovieBuy.css
+            │  │      userMovieDetail.css
+            │  │      
+            │  ├─fonts
+            │  │      fa-brands-400.eot
+            │  │      fa-brands-400.svg
+            │  │      fa-brands-400.ttf
+            │  │      fa-brands-400.woff
+            │  │      fa-brands-400.woff2
+            │  │      fa-regular-400.eot
+            │  │      fa-regular-400.svg
+            │  │      fa-regular-400.ttf
+            │  │      fa-regular-400.woff
+            │  │      fa-regular-400.woff2
+            │  │      fa-solid-900.eot
+            │  │      fa-solid-900.svg
+            │  │      fa-solid-900.ttf
+            │  │      fa-solid-900.woff
+            │  │      fa-solid-900.woff2
+            │  │      
+            │  ├─images
+            │  │      404.jpg
+            │  │      defaultAvatar.jpg
+            │  │      index-back-1.jpg
+            │  │      index-back.jpg
+            │  │      lance1.jpg
+            │  │      lance2.jpg
+            │  │      lance3.jpg
+            │  │      seat.png
+            │  │      seatChoose.png
+            │  │      seatLock.png
+            │  │      
+            │  └─js
+            │          adminCinemaManage.js
+            │          adminClerkManage.js
+            │          adminMemberManage.js
+            │          adminPromotionManage.js
+            │          bootstrap-table.js
+            │          bootstrap.bundle.js
+            │          bootstrap.bundle.js.map
+            │          clerkCinemaStatistic.js
+            │          clerkMovieManage.js
+            │          clerkScheduleManage.js
+            │          echarts.js
+            │          index.js
+            │          jquery.js
+            │          movieDetail.js
+            │          request.js
+            │          signUp.js
+            │          userBuy.js
+            │          userHome.js
+            │          userMember.js
+            │          userMessage.js
+            │          userMovie.js
+            │          userMovieBuy.js
+            │          userMovieDetail.js
+            │          userNavi.js
+            │          userOrder.js
+            │          
+            └─templates
+                    adminCinemaManage.html
+                    adminClerkManage.html
+                    adminMemberManage.html
+                    adminPromotionManage.html
+                    clerkCinemaStatistic.html
+                    clerkMovieDetail.html
+                    clerkMovieManage.html
+                    clerkScheduleManage.html
+                    index.html
+                    signUp.html
+                    userBuy.html
+                    userHome.html
+                    userMember.html
+                    userMessage.html
+                    userMovie.html
+                    userMovieBuy.html
+                    userMovieDetail.html
+                    userOrder.html
+                    

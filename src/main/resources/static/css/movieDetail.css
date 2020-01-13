@@ -1,0 +1,51 @@
+.content-header {
+    height: 340px;
+    display: flex;
+}
+#movie-name{
+    color: #2C3E50;
+    font-weight: bolder;
+    font-size: 40px;
+}
+.poster-container{
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.movie-basic-info {
+    flex: 1;
+    padding: 0 20px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.movie-operations {
+    margin-top: auto;
+}
+
+#movie-img {
+    border-color: #f7f7f7;
+    border-radius: 5px;
+    height: 320px;
+    width: 240px;
+}
+
+#movie-description {
+    max-height: 60px;
+    min-height: 20px;
+}
+
+.seesion-container {
+    margin-top: 30px;
+    background-color: #FFFFFF;
+}
+
+.statistic-container {
+    margin-top: 30px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}

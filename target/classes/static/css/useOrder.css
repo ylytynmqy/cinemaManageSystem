@@ -1,0 +1,25 @@
+.success-notice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.success-notice .hint {
+    margin-top: 25px;
+    font-size: 20px;
+}
+
+.cancel-notice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.cancel-notice .hint {
+    margin-top: 25px;
+    font-size: 20px;
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cinema.data.management.ClerkMapper">
+    <select id="selectAllClerk" resultMap="Clerk">
+        select id,username from user WHERE role='clerk'
+    </select>
+
+    <delete id="deleteClerk">
+        delete from user where id=#{clerkId}
+    </delete>
+
+    <insert id="insertClerkRank">
+        insert into clerk_rank(clerk_id,c_rank)
+        values(#{clerkId},#{rank})
+    </insert>
+
+    <update id="updateClerkRank" parameterType="com.example.cinema.vo.ClerkRankVO">
+        update clerk_rank set c_rank=#{rank} WHERE clerk_id=#{clerkId}
+    </update>
+
+    <delete id="deleteClerkRank">
+        delete from clerk_rank where clerk_id=#{clerkId};
+    </delete>
+
+    <select id="selectClerkRank" resultType="int">
+        select c_rank from clerk_rank where clerk_id=#{clerkId}
+    </select>
+
+    <insert id="insertCode" useGeneratedKeys="true" keyProperty="id">
+        insert into verification_code(v_code) values(#{code})
+    </insert>
+
+    <update id="updateCode">
+        update verification_code set v_code = #{code}
+    </update>
+
+    <select id="selectCode" resultType="String">
+        select v_code from verification_code limit 1
+    </select>
+
+    <resultMap id="Clerk" type="com.example.cinema.po.Clerk">
+        <id column="id" property="id"></id>
+        <result column="username" property="username"></result>
+    </resultMap>
+</mapper>

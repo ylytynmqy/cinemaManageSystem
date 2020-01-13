@@ -1,0 +1,37 @@
+body{
+	background: url("../images/index-back-1.jpg") no-repeat;
+	background-size: cover;
+	/*background-repeat: no-repeat;*/
+	/*background-position: center;*/
+	height:100%;
+	width:100%;
+	overflow: hidden;
+}
+.welcome-text{
+	position: fixed;
+	color: rgba(255, 255, 255, 1);
+	top:25%;
+	left: 10%;
+	font-size: 60px;
+}
+#main-container {
+	height: 100%;
+	display: flex;
+}
+
+#login-container {
+	position: fixed;
+	top:15%;
+	right: 6%;
+	border-radius: 5px;
+	padding: 20px;
+	width: 400px;
+}
+
+#login-form {
+	margin-top: 35px;
+}
+
+.input-interval {
+	margin: 5px 0;
+}

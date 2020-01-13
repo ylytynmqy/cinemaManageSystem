@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <title>电影</title>
+    <!-- Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css?v=1.1"/>
+
+    <!-- 引入css样式文件 -->
+    <link rel="stylesheet" type="text/css" href="/css/common.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/userHome.css?v=1.1"/>
+
+    <!-- 引入js脚本文件 -->
+    <!-- jquery -->
+    <script src="/js/jquery.js?v=1.1"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+<!--    <script src="/js/popper.js"></script>-->
+    <script src="/js/bootstrap.bundle.js?v=1.1"></script>
+<!--    <script src="/js/bootstrap.js"></script>-->
+    <script src="/js/request.js?v=1.1"></script>
+    <script src="/js/userHome.js?v=1.1"></script>
+    <script src="/js/userNavi.js?v=1.1"></script>
+</head>
+<body>
+<div class="navbar  form-inline">
+    <div class="col-4">
+        <span class="nav-title" >影院购票系统</span>
+    </div>
+    <div class="col-6">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link active" href="/user/home">首页</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/movie">电影</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/buy">电影票</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/member">卡包</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/order">订单</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/message">消息</a></li>
+        </ul>
+    </div>
+    <div class="col-2">
+        <img class="avatar-sm" src="/images/defaultAvatar.jpg"/>
+    </div>
+</div>
+
+<div class="content-container-front">
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" id="messageAlert">
+        <h4 class="alert-heading">系统通知</h4>
+        <strong>新通知</strong> 请您在<a class="hint" href="/user/message">消息</a>界面查看。
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="top-3">
+        最受欢迎TOP3
+    </div>
+
+    <div class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#c-indicator" data-slide-to="0" class="active"></li>
+            <li data-target="#c-indicator" data-slide-to="1"></li>
+            <li data-target="#c-indicator" data-slide-to="2"></li>
+        </ol>
+        <!-- Carousel Indicator End -->
+        <!-- Carousel Inner Start -->
+        <div class="carousel-inner" id="posters">
+            <div class="carousel-item active justify-content-center">
+                <a id="acc0" href=""><img id="poster0" src="/images/lance3.jpg" class="user-home-image "></a>
+                <div class="carousel-caption">
+                    <h2 id="name0" class="carousel-movie-name">=====</h2>
+                </div>
+            </div>
+            <div class="carousel-item justify-content-center">
+                <a id="acc1" href=""><img id="poster1" src="/images/lance3.jpg" class="user-home-image" ></a>
+                <div class="carousel-caption">
+                    <h2 id="name1" class="carousel-movie-name">======</h2>
+                </div>
+            </div>
+            <div class="carousel-item justify-content-center">
+                <a id="acc2" href=""><img id="poster2" src="/images/lance3.jpg" class="user-home-image"></a>
+                <div class="carousel-caption">
+                    <h2 id="name2" class="carousel-movie-name">====</h2>
+                </div>
+            </div>
+        </div>
+        <!-- Carousel Inner End -->
+        <!-- Carousel Control Start -->
+        <a class="carousel-control-prev" href="#c-indicator" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#c-indicator" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+</div>
+</body>
+</html>

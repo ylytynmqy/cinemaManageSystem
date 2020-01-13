@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cinema.data.promotion.RefundMapper">
+    <select id="selectRefundStrategyCount" resultType="int">
+        select count(*) as num from refund_strategy
+    </select>
+
+    <select id="selectRefundStrategy" resultType="com.example.cinema.vo.RefundStrategyForm">
+        select * from refund_strategy limit 1;
+    </select>
+
+    <insert id="insertRefundStrategy" parameterType="com.example.cinema.vo.RefundStrategyForm" useGeneratedKeys="true" keyProperty="id">
+        insert into refund_strategy(`time`,percent)
+        values(#{time},#{percent})
+    </insert>
+
+    <update id="updateRefundStrategy" parameterType="com.example.cinema.vo.RefundStrategyForm">
+        update refund_strategy set time = #{time},percent = #{percent}
+        where id = #{id}
+    </update>
+</mapper>

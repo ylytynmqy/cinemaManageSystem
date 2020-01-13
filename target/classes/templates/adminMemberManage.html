@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <title>会员管理</title>
+    <link rel="stylesheet" type="text/css" href="/css/common.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/adminMemberManage.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-table.css?v=1.1"/>
+
+    <script src="/js/jquery.js?v=1.1"></script>
+<!--    <script src="/js/popper.js"></script>-->
+    <script src="/js/bootstrap.bundle.js?v=1.1"></script>
+<!--    <script src="/js/bootstrap.js"></script>-->
+    <script src="/js/request.js?v=1.1"></script>
+    <script src="/js/adminMemberManage.js?v=1.1"></script>
+    <script src="/js/bootstrap-table.js?v=1.1"></script>
+</head>
+<body>
+<div class="nav-left-container">
+    <div class="nav-user-container" style="margin-bottom: 50px;">
+        <img class="avatar-lg" src="/images/defaultAvatar.jpg" />
+        <p class="title">Admin</p>
+    </div>
+    <ul class="nav nav-pills flex-column nav-column">
+        <li class="nav-item"><a class="nav-link" href="/admin/promotion/manage"><i class="fas fa-gifts"></i>  活动管理</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/cinema/manage"><i class="fas fa-couch"></i>  影院管理</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/admin/member/manage"><i class="fas fa-crown"></i>  会员管理</a></li>
+        <li class="nav-item"><a class="nav-link" href="/admin/clerk/manage"><i class="fas fa-user-cog"></i>  员工管理</a></li>
+
+    </ul>
+</div>
+
+<div class="content-container-back">
+    <div class="content-item">
+        <div class="content-header">
+            <span class="subtitle">会员管理</span>
+            <button type="button" class="btn btn-primary" data-backdrop="static" data-toggle="modal" id="addCardKind"><i class="icon-plus-sign"></i> 发布会员卡</button>
+        </div>
+        <div class="content-vip">
+            <span class="subtitle">会员卡管理</span>
+
+        </div>
+    </div>
+
+    <div class="content-item">
+        <span class="subtitle">赠送优惠券</span>
+        <div>
+            <table id="member">
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="vipModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="vipModalLabel">发布会员卡</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="control-label" for="member-card-description-input"><span class="error-text">*</span>会员卡名称</label>
+                        <div >
+                            <input type="text" class="form-control" id="member-card-description-input" placeholder="请输入会员卡名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="member-card-price-input"><span class="error-text">*</span>会员卡价格</label>
+                        <div>
+                            <input type="number" class="form-control" id="member-card-price-input" placeholder="请输入会员卡价格">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="member-card-bound-input"><span class="error-text">*</span>满</label>
+                        <div>
+                            <input type="number" class="form-control" id="member-card-bound-input" placeholder="请输入会员卡充值金额">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="member-card-bonus-input"><span class="error-text">*</span>送</label>
+                        <div>
+                            <input type="number" class="form-control" id="member-card-bonus-input" placeholder="请输入会员卡赠送金额">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="member-card-percent-input"><span class="error-text">*</span>会员卡百分比</label>
+                        <div>
+                            <input type="number" class="form-control" id="member-card-percent-input" placeholder="请输入会员卡折扣百分比">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="member-card-form-btn">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="vipModalEdit" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="vipEditModalLabel">修改会员卡</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="control-label" for="edit-member-card-description-input"><span class="error-text">*</span>会员卡名称</label>
+                        <div>
+                            <input type="text" class="form-control" id="edit-member-card-description-input" placeholder="请输入会员卡名称">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="edit-member-card-price-input"><span class="error-text">*</span>会员卡价格</label>
+                        <div>
+                            <input type="number" class="form-control" id="edit-member-card-price-input" placeholder="请输入会员卡价格">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="edit-member-card-bound-input"><span class="error-text">*</span>满</label>
+                        <div>
+                            <input type="number" class="form-control" id="edit-member-card-bound-input" placeholder="请输入会员卡充值金额">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="edit-member-card-bonus-input"><span class="error-text">*</span>送</label>
+                        <div>
+                            <input type="number" class="form-control" id="edit-member-card-bonus-input" placeholder="请输入会员卡赠送金额">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="edit-member-card-percent-input"><span class="error-text">*</span>会员卡百分比</label>
+                        <div>
+                            <input type="number" class="form-control" id="edit-member-card-percent-input" placeholder="请输入会员卡折扣百分比">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="edit-member-card-form-btn">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--send coupon-->
+<div class="modal fade" id="couponAddModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="couponAddMoalLabel">赠送优惠券</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <label class="control-label" for="select-coupon-input">可供选择的优惠券</label>
+                    <div id="select-coupon-input">
+                        <!--在架上的活动列表-->
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="send-coupon-form-btn">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

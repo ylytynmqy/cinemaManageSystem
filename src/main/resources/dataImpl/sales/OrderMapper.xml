@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cinema.data.sales.OrderMapper">
+    <insert id="insertOrder" parameterType="com.example.cinema.po.Order"
+            useGeneratedKeys="true" keyProperty="id">
+        insert into ordert(user_id,total,state,type,description,pay_method)
+        values (#{user_id},#{total},#{state},#{type},#{description},#{payMethod})
+    </insert>
+
+    <select id="selectOrdersByUser" resultMap="Order">
+        select * from ordert where user_id = #{user_id}
+    </select>
+
+
+    <select id="selectOrderById" resultMap="Order">
+        select * from ordert where id=#{id};
+    </select>
+
+    <update id="updateOrderState">
+        update ordert set state=#{state} where id=#{id}
+    </update>
+
+    <update id="updateEndTime">
+        update ordert set end_time = #{endTime} where id=#{id}
+    </update>
+
+    <update id="updatePayMethod">
+        update ordert set pay_method = #{payMethod} where id=#{id}
+    </update>
+
+    <update id="cleanExpiredOrder">
+        update ordert SET  state =2 WHERE minute(timediff(now(),join_time))>15 and state=0;
+    </update>
+
+    <resultMap id="Order" type="com.example.cinema.po.Order">
+        <id column="id" property="id"></id>
+        <result column="user_id" property="user_id"></result>
+        <result column="state" property="state"></result>
+        <result column="type" property="type"></result>
+        <result column="join_time" property="join_time"></result>
+        <result column="end_time" property="end_time"></result>
+        <result column="total" property="total"></result>
+        <result column="pay_method" property="payMethod"></result>
+    </resultMap>
+</mapper>

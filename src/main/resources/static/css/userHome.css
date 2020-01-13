@@ -1,0 +1,27 @@
+body{
+    background-color: #FFFFFF;
+}
+.movie-contianer {
+    display: flex;
+}
+.top-3{
+    text-align: center;
+    font-size: 50px;
+    color: rgba(44, 62, 80, 1);
+}
+.carousel-inner{
+    background:rgba(190,190,190,0);}
+.carousel-item{
+    background:rgba(190,190,190,0);
+    height: 450px;
+}
+.user-home-image {
+    position: absolute;
+    left:50%;
+    top:50%;
+    margin-left:-154px;
+    margin-top:-225px;
+    height: 100%;
+    width: 308px;
+}
+

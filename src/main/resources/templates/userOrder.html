@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <title>我的订单</title>
+    <!--Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css?v=1.1"/>
+
+
+    <!-- 引入css样式文件 -->
+    <link rel="stylesheet" type="text/css" href="/css/common.css?v=1.1"/>
+
+    <!-- 引入js脚本文件 -->
+    <!-- jquery -->
+    <script src="/js/jquery.js?v=1.1"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+    <script src="/js/bootstrap.bundle.js?v=1.1"></script>
+    <script src="/js/request.js?v=1.1"></script>
+    <script src="/js/userNavi.js?v=1.1"></script>
+    <script src="/js/userOrder.js?v=1.1"></script>
+</head>
+<body>
+<div class="navbar form-inline">
+    <div class="col-4">
+        <span class="nav-title" >影院购票系统</span>
+    </div>
+    <div class="col-6">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link " href="/user/home">首页</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/movie">电影</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/buy">电影票</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/member">卡包</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/user/order">订单</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/message">消息</a></li>
+        </ul>
+    </div>
+    <div class="col-2">
+        <img class="avatar-sm" src="/images/defaultAvatar.jpg"/>
+    </div>
+</div>
+
+<div class="content-container-front">
+    <div class="container-m">
+        <div class="list-view">
+            <div class="content-card" id="order-list">
+            </div>
+        </div>
+
+        <div class="user-order-cancel-state" style="display: none;">
+            <div class="user-order-cancel-notice" style="text-align: center">
+                <span class="glyphicon glyphicon-trash" style="font-size: 200px; color: #e8e8e8"></span>
+                <div class="hint">订单已取消</div>
+            </div>
+        </div>
+
+        <div class="user-order-success-state" style="display: none;">
+            <div class="success-notice" style="text-align: center">
+                <i class="fas fa-check-circle" style="font-size: 200px;color: #67b168"></i>
+                <div class="hint">支付成功</div>
+            </div>
+        </div>
+
+        <div class="user-order-refund-state" style="display: none;">
+            <div class="success-notice" style="text-align: center">
+                <i class="fas fa-hand-holding-usd" style="font-size: 200px;color: #17a2b8"></i>
+                <div class="hint">已退票</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="user-order-pay-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">付款</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"  onclick="switchPay(0)"><a id="vip-pay-navi-switch" class="nav-link active" href="#"><span class="modal-switch">会员卡支付</span></a></li>
+                    <li class="nav-item" onclick="switchPay(1)"><a id="bank-pay-navi-switch"  class="nav-link" href="#"><span class="modal-switch">银行卡支付</span></a></li>
+                </ul>
+
+
+                <div id="vip-pay-body" style="margin-bottom: 20px;">
+                    <br>
+                    <div id="vip-pay-body-vipcard-balance"><b>会员卡余额：</b>&nbsp;&nbsp;90元</div>
+                </div>
+
+                <div id="bank-pay-body" style="display: none;">
+                    <div class="form-group">
+                        <label for="bank-pay-body-card-num">银行卡号</label>
+                        <input class="form-control" id="bank-pay-body-card-num" placeholder="请输入银行卡号">
+                        <p id="bank-pay-body-card-num-error" class="notice">银行卡号不能为空</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bank-pay-body-card-password">密码</label>
+                        <input type="password" class="form-control" id="bank-pay-body-card-password" placeholder="请输入密码">
+                        <p id="bank-pay-body-card-password-error" class="notice">密码不能为空</p>
+                    </div>
+                </div>
+
+                <div id="pay-total"><b>金额：</b>&nbsp;&nbsp;90元</div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-light" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="payConfirmClick()">确认支付</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

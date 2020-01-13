@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <title>Welcome</title>
+    <!-- 引入css样式文件 -->
+    <link rel="stylesheet" type="text/css" href="/css/index.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css?v=1.1"/>
+    <!-- Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css?v=1.1"/>
+
+
+    <!-- jquery -->
+    <script src="/js/jquery.js?v=1.1"></script>
+    <!-- 引入js脚本文件 -->
+    <script src="/js/signUp.js?v=1.1"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+<!--    <script src="/js/popper.js"></script>-->
+    <script src="/js/bootstrap.bundle.js?v=1.1"></script>
+<!--    <script src="/js/bootstrap.js"></script>-->
+
+    <script src="/js/request.js?v=1.1"></script>
+</head>
+<body>
+<div id="main-container">
+    <span class="welcome-text">
+        欢迎登陆
+            影院系统</span>
+    <div id="login-container" class="card">
+        <h3 class="subtitle">注册</h3>
+        <form id="login-form">
+            <div class="input-interval">
+                <div id="signUp-role" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="role" id="option1" value='用户' autocomplete="off">用户
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="role" id="option2" value="员工" autocomplete="off">员工
+                    </label>
+                </div>
+                <p id="signUp-role-error" class="notice">未选择角色</p>
+            </div>
+
+            <div class="input-interval">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input id="signUp-name" type="text" class="form-control" placeholder="请输入用户名">
+                </div>
+                <p id="signUp-name-error" class="notice">用户名长度应在4-10位内</p>
+            </div>
+
+            <div class="input-interval">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-lock" aria-hidden="true"></i></span>
+                    <input id="signUp-password" type="password" class="form-control" placeholder="请输入密码">
+                </div>
+                <p id="signUp-password-error" class="notice">密码长度应在6-12位内</p>
+            </div>
+
+            <div class="input-interval">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-lock" aria-hidden="true"></i></span>
+                    <input id="signUp-second-password" type="password" class="form-control" placeholder="请再次确认密码">
+                </div>
+                <p id="signUp-second-password-error" class="notice">请再次输入密码</p>
+            </div>
+
+            <div class="input-interval" id="signUp-veri-code-input" style="display: none;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-circle" aria-hidden="true"></i></span>
+                    <input id="signUp-veri-code" type="text" class="form-control" placeholder="请输入注册验证码">
+                </div>
+                <p id="signUp-veri-code-error" class="notice">验证码错误，请再次输入</p>
+            </div>
+
+            <div class="form-group">
+                <p>已有账号? <a href="/index">&nbsp;立即登录</a>
+            </div>
+
+            <button id="signUp-btn" type="button" class="btn btn-primary input-interval btn-block">注 册</button>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

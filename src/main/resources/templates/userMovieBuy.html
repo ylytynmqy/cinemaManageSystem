@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <title>买电影</title>
+    <!-- Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css?v=1.1"/>
+
+    <!-- 引入css样式文件 -->
+    <link rel="stylesheet" type="text/css" href="/css/common.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/userMovieBuy.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/cinemaHall.css?v=1.1"/>
+
+    <!-- 引入js脚本文件 -->
+    <!-- jquery -->
+    <script src="/js/jquery.js?v=1.1"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+<!--    <script src="/js/popper.js"></script>-->
+    <script src="/js/bootstrap.bundle.js?v=1.1"></script>
+<!--    <script src="/js/bootstrap.js"></script>-->
+    <script src="/js/request.js?v=1.1"></script>
+    <script src="/js/movieDetail.js?v=1.1"></script>
+    <script src="/js/userMovieBuy.js?v=1.1"></script>
+    <script src="/js/userNavi.js?v=1.1"></script>
+</head>
+<body>
+<div class="navbar form-inline">
+    <div class="col-4">
+        <span class="nav-title" >影院购票系统</span>
+    </div>
+    <div class="col-6">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link " href="/user/home">首页</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/user/movie">电影</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/buy">电影票</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/member">卡包</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/order">订单</a></li>
+            <li class="nav-item"><a class="nav-link" href="/user/message">消息</a></li>
+        </ul>
+    </div>
+    <div class="col-2">
+        <img class="avatar-sm" src="/images/defaultAvatar.jpg"/>
+    </div>
+</div>
+
+<div class="content-container-front" id="content-under">
+    <div class="container-m">
+        <!--        1.选座-->
+        <div id="seat-state">
+            <ol class="breadcrumb col-12">
+                <li class="breadcrumb-item col-4"><a href="#" class="active">1. 选座</a></li>
+                <li class="breadcrumb-item col-4">2. 确认订单</li>
+                <li class="breadcrumb-item col-4">3. 订单状态</li>
+            </ol>
+
+            <div class="seat-content col-md-12">
+                <div class="col-md-9 content-card card" id="hall-card"></div>
+
+                <div class="col-md-3 movie-detail">
+                    <div class="line">
+                        <div class="name img-wrapper">
+                            <img id="movie-img">
+                        </div>
+                        <div class="info">
+                            <div id="movie-name"></div>
+                            <div>语言：<span id="movie-language"></span></div>
+                            <div>类型：<span id="movie-type"></span></div>
+                            <div>片长：<span id="movie-length"></span>分钟</div>
+                            <div>票价：<span id="schedule-fare"></span>元/张</div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="line">
+                        <div class="name">影厅：</div>
+                        <div id="schedule-hall-name"></div>
+                    </div>
+                    <div class="line">
+                        <div class="name">场次：</div>
+                        <div id="schedule-time"></div>
+                    </div>
+                    <div class="line">
+                        <div class="name">座位：</div>
+                        <div id="seat-detail">还未选择座位</div>
+                    </div>
+                    <hr/>
+                    <button id="order-confirm-btn" class="btn btn-primary" onclick="seatConfirmClick()" disabled="disabled">
+                        确认下单
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!--        2.确认订单-->
+        <div  id="order-state" style="display: none;">
+            <ol class="breadcrumb col-12">
+                <li class="breadcrumb-item col-md-4">1. 选座</li>
+                <li class="breadcrumb-item col-md-4"><a href="#" class="active">2. 确认订单</a></li>
+                <li class="breadcrumb-item col-md-4">3.订单状态</li>
+            </ol>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>电影</th>
+                    <th>场次</th>
+                    <th>票数/座位</th>
+                    <th>单价(元)</th>
+                    <th>总价(元)</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td>
+                        <div id="order-movie-name"></div>
+                    </td>
+                    <td>
+                        <div id="order-schedule-hall-name"></div>
+                        <div id="order-schedule-time"></div>
+                    </td>
+                    <td id="order-tickets">
+                    </td>
+                    <td id="order-schedule-fare"></td>
+                    <td><b id="order-total"></b></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="order-info">
+                <div>
+                    优惠券：
+                    <select style="height: 30px;" id="order-coupons"
+                            onchange="changeCoupon(this.options.selectedIndex)">
+                    </select>
+                </div>
+
+                <div>
+                    <div class="item" id="order-footer-total"></div>
+                    <div class="item" id="order-discount"></div>
+                </div>
+            </div>
+
+            <hr class="dashed-line"/>
+
+            <div class="order-footer">
+                <div class="item" >实付款：<b id="order-actual-total"></b></div>
+                <div class="form-inline">
+                    <button type="button" class="btn btn-default" onclick="cancelClick()">取消订单</button>
+                    <button type="button" class="btn btn-primary" onclick="orderConfirmClick()">确认订单</button>
+                </div>
+            </div>
+        </div>
+
+        <!--        3.订单状态-->
+        <div id="success-state" style="display: none;">
+            <ol class="breadcrumb col-md-12">
+                <li class="breadcrumb-item col-md-4">1. 选座</li>
+                <li class="breadcrumb-item col-md-4">2. 确认订单</li>
+                <li class="breadcrumb-item col-md-4"><a href="#" class="active">3. 订单状态</a></li>
+            </ol>
+
+            <div class="success-notice" style="text-align: center">
+                <i class="fas fa-check-circle" style="font-size: 200px;color: #67b168"></i>
+                <div class="hint">支付成功，至<a class="hint" href="/user/buy">我的电影票</a>页面查看</div>
+            </div>
+        </div>
+
+        <div id="cancel-state" style="display: none;">
+            <ol class="breadcrumb col-md-12">
+                <li class="breadcrumb-item col-md-4">1. 选座</li>
+                <li class="breadcrumb-item col-md-4">2. 确认订单</li>
+                <li class="breadcrumb-item col-md-4"><a href="#" class="active">3. 订单状态</a></li>
+            </ol>
+
+            <div class="cancel-notice" style="text-align: center">
+                <div class="fas fa-trash-alt" style="font-size: 200px; color: #e8e8e8"></div>
+                <div class="hint">订单已取消</div>
+            </div>
+        </div>
+
+        <div  id="unpaid-state" style="display: none;">
+            <ol class="breadcrumb col-md-12">
+                <li class="breadcrumb-item col-md-4">1. 选座</li>
+                <li class="breadcrumb-item col-md-4">2. 确认订单</li>
+                <li class="breadcrumb-item col-md-4"><a href="#" class="active">3. 订单状态</a></li>
+            </ol>
+
+            <div class="unpaid-notice" style="text-align: center">
+                <i class="fas fa-hourglass-half" aria-hidden="true" style="font-size: 200px; color: #f0ad4e"></i>
+                <div class="hint">订单待支付，请前往<a class="hint" href="/user/order">订单</a>尽快支付</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">付款</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <ul class="nav nav-tabs" style="margin-bottom: 20px;">
+                    <li id="member-pay" onclick="switchPay(0)"><a  class="nav-link active" href="#">会员卡支付</a></li>
+                    <li id="nonmember-pay" onclick="switchPay(1)"><a  class="nav-link" href="#">银行卡支付</a></li>
+                </ul>
+
+                <div id="modal-body-member" style="margin-bottom: 20px;">
+                    <div id="member-balance"><b>会员卡余额：</b>&nbsp;&nbsp;90元</div>
+                    <div id="member-discount"><b>会员折扣：</b>    90%</div>
+                </div>
+
+                <div id="modal-body-nonmember" style="display: none;">
+                    <div class="form-group">
+                        <label for="userBuy-cardNum">银行卡号</label>
+                        <input class="form-control" id="userBuy-cardNum" placeholder="请输入银行卡号">
+                        <p id="userBuy-cardNum-error" class="notice">银行卡号不能为空</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="userBuy-cardPwd">密码</label>
+                        <input type="password" class="form-control" id="userBuy-cardPwd" placeholder="请输入密码">
+                        <p id="userBuy-cardPwd-error" class="notice">密码不能为空</p>
+                    </div>
+                </div>
+
+                <div id="pay-amount"><b>金额：</b>&nbsp;&nbsp;90元</div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="unpaidClick()">稍后支付</button>
+                <button type="button" class="btn btn-primary" onclick="payConfirmClick()">确认支付</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

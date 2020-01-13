@@ -1,0 +1,194 @@
+/*共用----------------------------------------------------------------*/
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 14px;
+}
+html {
+    height: 100%;
+}
+body {
+    font-family: "微软雅黑 Light";
+    height: 100%;
+}
+card{
+    border: 0px;
+}
+input {
+    width: 250px;
+    height: 30px;
+    border: 0;
+}
+
+/*没得锚头*/
+ul {
+    list-style: none;
+}
+/*标题*/
+.title {
+    font-size: 24px;
+    color: #f7f7f7;
+}
+.nav-title{
+    color: #f7f7f7;
+    font-size: 36px;
+    font-weight: bolder;
+}
+    /*头像格式*/
+.avatar-lg {
+    width: 55px;
+    height:55px;
+    border-radius: 50%;
+}
+.avatar-sm {
+    width: 40px;
+    height:40px;
+    border-radius: 50%;
+}
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+}
+.label-default {
+    background-color: #777;
+}
+.label-default[href]:hover,
+.label-default[href]:focus {
+    background-color: #5e5e5e;
+}
+.label-success {
+    background-color: #5cb85c;
+}
+.label-success[href]:hover,
+.label-success[href]:focus {
+    background-color: #449d44;
+}
+.label-warning {
+    background-color: #f0ad4e;
+}
+.label-warning[href]:hover,
+.label-warning[href]:focus {
+    background-color: #ec971f;
+}
+
+.notice {
+    visibility: hidden;
+    margin-left: 40px;
+    color: rgba(255, 4, 84, 0.82);
+    font-size: 12px;
+}
+
+/*我自己定义的*/
+.nav-pills{
+    width: fit-content;
+    width:-moz-fit-content;
+    justify-content: space-around;
+}
+.nav-item{
+    width: fit-content;
+    width:-moz-fit-content;
+}
+.nav-link{
+    color: #f7f7f7;
+    width: fit-content;
+    width:-moz-fit-content;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background-color: #f7f7f7;
+    color: rgba(44, 62, 80, 1);
+}
+/*------------------------------------------------------------------------------------------------------------------------------*/
+/*front*/
+.navbar {
+    height:72px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: #2C3E50;
+}
+.navbar:hover {
+    background-color:rgba(34, 49, 63, 1);
+    height:72px;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.content-container-front{
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: scroll;
+    background-color: #FFFFFF;
+}
+/*---------------------------------------------------------------------------------------------------*/
+/*back*/
+.content-container-back{
+    position: fixed;
+    top: 0;
+    left: 250px;
+    right: 0;
+    bottom: 0;
+    background-color: #FFFFFF;
+    overflow: scroll;
+}
+.nav-left-container {
+    position: fixed;
+    width: 250px;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(44, 62, 80, 1);
+    padding: 30px 20px;
+}
+/*后台用*/
+.content-item {
+    margin-bottom: 30px;
+}
+.content-card {
+    padding: 20px;
+    margin: 10px;
+}
+.nav-user-container {
+    padding: 0px 5px 0px 5px;
+    text-align: center;
+    color: rgba(44, 62, 80, 0);
+}
+.nav-column{
+    width: 210px;
+}
+.nav-column > nav-item{
+    position: absolute;
+    left:50%;
+    margin-left:-50.92px;
+    width: 101.84px;
+}
+.content-header{
+    height: 75px;
+    text-align: center;
+}
+.subtitle{
+    color: rgba(44, 62, 80, 1);
+    font-size: 24px;
+    font-weight: bolder;
+}
+.modal-switch{
+    color: rgba(44, 62, 80, 1);
+}
+.container-m{
+    /*margin-left: 50px;*/
+    margin-top: 5px;
+    /*margin-right: 50px;*/
+    margin-bottom: 30px;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <!-- 引入css样式文件 -->
+    <link rel="stylesheet" type="text/css" href="/css/index.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/common.css?v=1.1"/>
+    <!-- Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css?v=1.1"/>
+
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-grid.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-reboot.css?v=1.1"/>
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css?v=1.1"/>
+    <!-- jquery -->
+    <script src="/js/jquery.js?v=1.1"></script>
+    <!-- Bootstrap 核心 JavaScript 文件 -->
+<!--    <script src="/js/popper.js"></script>-->
+    <script src="/js/bootstrap.bundle.js?v=1.1"></script>
+<!--    <script src="/js/bootstrap.js"></script>-->
+    <!-- 引入js脚本文件 -->
+    <script src="/js/request.js?v=1.1"></script>
+    <script src="/js/index.js?v=1.1"></script>
+</head>
+<body>
+<div id="main-container">
+    <span class="welcome-text">
+        欢迎登陆
+            影院系统</span>
+    <div class="card" id="login-container">
+        <h3 class="subtitle">登录</h3>
+        <form id="login-form">
+            <div class="input-interval">
+                <div id="login-role" class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="role" id="option1" value='用户' autocomplete="off">用户
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="role" id="option2" value="员工" autocomplete="off">员工
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="role" id="option3" value="管理员" autocomplete="off">管理员
+                    </label>
+                </div>
+                <p id="index-role-error" class="notice">未选择角色</p>
+            </div>
+
+            <div class="input-interval">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    <input id="index-name" type="text" class="form-control" placeholder="请输入用户名">
+                </div>
+                <p id="index-name-error" class="notice">用户名不能为空</p>
+            </div>
+
+            <div class="input-interval">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    <input id="index-password" type="password" class="form-control" placeholder="请输入密码">
+                </div>
+                <p id="index-password-error" class="notice">密码不能为空</p>
+            </div>
+
+            <div class="form-group">
+                <p>还未注册过? <a href="/signUp">&nbsp;立即注册</a>
+            </div>
+
+            <button id="login-btn" type="button" class="btn btn-primary input-interval btn-block">登 录</button>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>
